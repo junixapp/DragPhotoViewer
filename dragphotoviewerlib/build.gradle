@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: "guru.stefma.bintrayrelease"
 android {
     compileSdkVersion 28
 
@@ -23,3 +24,14 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.github.chrisbanes:PhotoView:2.1.4'
 }
+
+version = "0.0.1"
+group = "com.lxj.dragphotoviewer"
+publish {
+    repoName = 'jrepo'
+    userOrg = 'li-xiaojun'
+    artifactId = 'dragphotoviewer'
+    desc = '完全模仿掘金Android App大图浏览拖拽效果！'
+    website = 'https://github.com/li-xiaojun/DragPhotoViewer'
+}
+// ./gradlew clean build bintrayUpload -PbintrayUser=li-xiaojun -PbintrayKey=99f6d08934145ab27e99a75af031b0b3c94d99a4 -PdryRun=false

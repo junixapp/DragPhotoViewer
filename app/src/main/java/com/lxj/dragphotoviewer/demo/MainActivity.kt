@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.lxj.dragphotoviewer.DragPhotoViewer
 import com.lxj.easyadapter.CommonAdapter
@@ -51,6 +52,19 @@ class MainActivity : AppCompatActivity() {
                             .show()
                 }
             })
+        }
+
+        //单张图片使用
+        val list2 = arrayListOf<String>()
+        list2.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539170196600&di=60afed2abdd6a3375b3a3c86266480e2&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F728da9773912b31bd8396f298c18367adab4e15d.jpg")
+        Glide.with(this).load(list2[0]).into(iv)
+        iv.setOnClickListener {
+            DragPhotoViewer(it.context)
+                    .setSrcView(iv)
+                    .setLoadImageListener { position, imageView ->
+                        Glide.with(it.context).load(list2[position]).into(imageView)
+                    }
+                    .show()
         }
 
     }

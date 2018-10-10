@@ -38,7 +38,7 @@ public class DragPhotoViewer extends Dialog implements OnDragChangeListener {
     OnUpdateSrcViewListener updateSrcViewListener;
     private OnLoadImageListener loadImageListener;
     private int currentItem;
-    private int imageSize;
+    private int imageSize = 1;
 
     private AnimInfo showAnimInfo, hideAnimInfo = new AnimInfo();
     private ImageView snapshot;
@@ -229,6 +229,11 @@ public class DragPhotoViewer extends Dialog implements OnDragChangeListener {
         // calucate relative translation with ViewPager scale value.
         snapshot.setTranslationX(pager.getWidth() * (1 - pageScale) / 2);
         snapshot.setTranslationY(snapshot.getTranslationY() + dy * pageScale);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
     public DragPhotoViewer setOnUpdateSrcViewListener(OnUpdateSrcViewListener updateSrcViewListener){

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: "guru.stefma.bintrayrelease"
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 28
 
@@ -25,12 +25,12 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.1.4'
 }
 
-version = "0.0.1"
-group = "com.lxj.dragphotoviewer"
 publish {
-    repoName = 'jrepo'
     userOrg = 'li-xiaojun'
+    groupId = 'com.lxj'
     artifactId = 'dragphotoviewer'
+    publishVersion = '0.0.1'
+    repoName = 'jrepo'
     desc = '完全模仿掘金Android App大图浏览拖拽效果！'
     website = 'https://github.com/li-xiaojun/DragPhotoViewer'
 }

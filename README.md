@@ -9,7 +9,7 @@
 [![Download](https://api.bintray.com/packages/li-xiaojun/jrepo/dragphotoviewer/images/download.svg)](https://bintray.com/li-xiaojun/jrepo/dragphotoviewer/latestVersion)
 
 ```
-compile 'com.lxj:dragphotoviewer:0.0.1'
+compile 'com.lxj:dragphotoviewer:latest release'
 ```
 
 # Usage

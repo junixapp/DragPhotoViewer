@@ -22,16 +22,15 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
+    api 'com.github.chrisbanes:PhotoView:2.1.4'
 }
 
 publish {
     userOrg = 'li-xiaojun'
     groupId = 'com.lxj'
     artifactId = 'dragphotoviewer'
-    publishVersion = '0.0.1'
+    publishVersion = '0.0.2'
     repoName = 'jrepo'
     desc = '完全模仿掘金Android App大图浏览拖拽效果！'
     website = 'https://github.com/li-xiaojun/DragPhotoViewer'
 }
-// ./gradlew clean build bintrayUpload -PbintrayUser=li-xiaojun -PbintrayKey=99f6d08934145ab27e99a75af031b0b3c94d99a4 -PdryRun=false

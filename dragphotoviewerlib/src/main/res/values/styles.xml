@@ -1,5 +1,5 @@
 <resources>
-    <style name="LoadingDialog" parent="Base.Theme.AppCompat.Dialog">
+    <style name="DragPhotoDialog" parent="Base.Theme.AppCompat.Dialog">
         <!--去掉dialog的content默认灰色背景,如果给@null在某些SDK会设置默认的颜色，所以指明透明色-->
         <item name="android:windowBackground">@android:color/transparent</item>
         <!--去掉dialog的默认灰色阴影层-->

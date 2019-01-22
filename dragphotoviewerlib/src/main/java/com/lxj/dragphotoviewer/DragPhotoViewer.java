@@ -7,6 +7,7 @@ import android.animation.IntEvaluator;
 import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -44,7 +45,7 @@ public class DragPhotoViewer extends Dialog implements OnDragChangeListener {
     private ImageView snapshot;
     private Bitmap srcBmp;
     public DragPhotoViewer(@NonNull Context context) {
-        super(context, R.style.LoadingDialog);
+        super(context, R.style.DragPhotoDialog);
     }
 
     public DragPhotoViewer(@NonNull Context context, int themeResId) {
@@ -144,8 +145,8 @@ public class DragPhotoViewer extends Dialog implements OnDragChangeListener {
 
     private AnimInfo createHideAnimInfo(View view) {
         int[] locations = new int[2];
-        view.getLocationInWindow(locations);
-        return new AnimInfo(locations[0], locations[1], view.getWidth(), view.getHeight());
+        view.getLocationOnScreen(locations);
+        return new AnimInfo(locations[0], locations[1]-getStatusBarHeight(), view.getWidth(), view.getHeight());
     }
 
     /**
@@ -254,5 +255,11 @@ public class DragPhotoViewer extends Dialog implements OnDragChangeListener {
     public DragPhotoViewer setCurrentItem(int position) {
         currentItem = position;
         return this;
+    }
+
+    public int getStatusBarHeight(){
+        Resources resources = Resources.getSystem();
+        int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        return resources.getDimensionPixelSize(resourceId);
     }
 }
